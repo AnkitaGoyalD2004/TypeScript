@@ -24,7 +24,8 @@ const sum = (a:number ,b: string) =>{
 console.log(sum(7,"Dishu"));
 
 // there is one more type which is union
-let success : boolean | number ;
-
-let postId : string | number;
+let postId : string | number | boolean;
 let isActive : number | boolean;
+
+let re: RegExp = /\w+/g
+

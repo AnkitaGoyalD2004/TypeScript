@@ -20,6 +20,6 @@ const sum = (a, b) => {
 };
 console.log(sum(7, "Dishu"));
 // there is one more type which is union
-let success;
 let postId;
 let isActive;
+let re = /\w+/g;
