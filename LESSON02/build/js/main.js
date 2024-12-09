@@ -1,13 +1,19 @@
 "use strict";
-let username = "Dutt";
-console.log(username);
-// let a = 12
-// let b = '6'
-// let c = 2
-// console.log(a / b) 
-// console.log(b * c) 
-let a = 12;
-let b = 'a';
-let c = 9;
-console.log(a / c);
-console.log(b + c);
+// let myName: string = "Ankita"
+let myName = "Ankita";
+let meaningOfLife;
+let isLoading;
+let album; // any is a type it means album can be any data type
+myName = "Goyal";
+meaningOfLife = 42;
+isLoading = true;
+// album = "Van Halen"
+// album = 34
+// album = true
+let c; // c is of union type 
+const sum = (a, b) => {
+    return a + b;
+};
+let postId;
+let isActive;
+let re = /\w+/g;
