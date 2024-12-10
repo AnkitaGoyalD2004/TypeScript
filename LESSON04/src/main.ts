@@ -4,7 +4,7 @@
 
 type stringOrNumber = string | number
 
-type stringOrNumberArray = (string | number )[]
+type stringOrNumberArray = (string | number)[]
 
 type Guitarist = {
     name?: string,
@@ -17,22 +17,51 @@ type UserId = stringOrNumber
 // interface PostId = stringOrNumber -> this is not correct way
 
 //Literal type
-let myName : 'Ankita';
-let username : 'Ankita' | 'Kanav' | 'Tashu'
+let myName: 'Ankita';
+let username: 'Ankita' | 'Kanav' | 'Tashu'
 username = 'Tashu'
 
 //functions
-const add = (a:number , b:number): number=>{
+const add = (a: number, b: number): number => {
     return a + b
 }
 
-const logMsg = (message : any): void =>{
+const logMsg = (message: any): void => {
     console.log(message);
-    
+
 }
 logMsg('Hello')
-logMsg(add(2,3))
+logMsg(add(2, 3))
 
-let subtract = function(c:number , d :number):number{
-    return c -d
+let subtract = function (c: number, d: number): number {
+    return c - d
+}
+type mathFunction = (a: number, d: number) => number
+
+// interface mathFunction {
+//     (a: number , b: number) : number
+// } 
+
+let multiply: mathFunction = function (c, d) {
+    return c * d
+}
+
+logMsg(multiply(2, 4))
+
+//optional parameters
+const addAll = (a: number, b: number, c?: number): number => {
+    if (typeof c !== 'undefined') {
+        return a + b + c
+    }
+    return a + b
+}
+
+//default parameters
+const SumAll = (a: number, b: number, c: number = 2): number => {
+    return a + b + c
+}
+
+//Rest Parameters
+const total = (...nums: number[]): number => {
+    return nums.reduce((prev , curr) => prev + curr)
 }
