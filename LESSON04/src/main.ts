@@ -63,5 +63,10 @@ const SumAll = (a: number, b: number, c: number = 2): number => {
 
 //Rest Parameters
 const total = (...nums: number[]): number => {
-    return nums.reduce((prev , curr) => prev + curr)
+    return nums.reduce((prev , curr) => prev + curr) 
+} 
+
+const createError = (errMsg :string) :never =>{
+  throw new Error(errMsg)
 }
+

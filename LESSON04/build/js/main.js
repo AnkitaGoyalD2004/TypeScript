@@ -41,3 +41,6 @@ const SumAll = (a, b, c = 2) => {
 const total = (...nums) => {
     return nums.reduce((prev, curr) => prev + curr);
 };
+const createError = (errMsg) => {
+    throw new Error(errMsg);
+};
