@@ -7,10 +7,14 @@ An index signature in TypeScript is like telling TypeScript,
  */
 
  interface TransactionsObj {
-    Pizza : number,
-    Books: number , 
-    Job: number
+   [index: string] : number 
  }
+
+//  interface TransactionsObj {
+//     Pizza : number,
+//     Books: number , 
+//     Job: number
+//  }
 
  const todaysTransactions : TransactionsObj = {
     Pizza: -10,
@@ -28,5 +32,16 @@ They are equivalent in functionality but differ in syntax:
  */
 
 let prop : string = 'Pizza'
+console.log(todaysTransactions[prop]);
+
+
+const todaysNet = (transactions: TransactionsObj): number =>{
+   let total = 0 
+   for(const transaction in transactions){
+      total += transactions[transaction]
+   }
+   return total
+}
+console.log(todaysNet(todaysTransactions));
 
  
