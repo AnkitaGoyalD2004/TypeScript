@@ -1,128 +1,45 @@
-class coder{
-    // name: string
-    // music: string 
-    // age: number
-    // lang: string
+/*
+Index Signatures
 
-secondLang !: string
+An index signature in TypeScript is like telling TypeScript, 
+"This object can have many properties, and I don't know all the property names right now,
+ but I know what type they will be and what type their values will have."
+ */
 
-    constructor(
-        public readonly name:string,
-        public music: string,
-        private age:number,
-        protected lang:string = 'Typescript'
-    ){
-        this.name = name
-        this.music = music
-        this.age = age
-        this.lang = lang
-
-    } 
-    public getAge(){
-        return `Hello , I'm ${this.age}`
+ interface TransactionsObj {
+    [index: string] : number 
+  }
+ 
+ //  interface TransactionsObj {
+ //     Pizza : number,
+ //     Books: number , 
+ //     Job: number
+ //  }
+ 
+  const todaysTransactions : TransactionsObj = {
+     Pizza: -10,
+     Books: -5,
+     Job: 50
+  }
+ 
+  console.log(todaysTransactions.Pizza);
+  console.log(todaysTransactions[`Pizza`]);
+  
+  /*
+ Both todaysTransactions.Pizza and todaysTransactions['Pizza'] are used to access the 
+ value of the Pizza property in the todaysTransactions object. 
+ They are equivalent in functionality but differ in syntax:
+  */
+ 
+ let prop : string = 'Pizza'
+ console.log(todaysTransactions[prop]);
+ 
+ 
+ const todaysNet = (transactions: TransactionsObj): number =>{
+    let total = 0 
+    for(const transaction in transactions){
+       total += transactions[transaction]
     }
-}
-
-const Dave = new coder('Ankita' , 'Rock' , 20, 'Typescript')
-console.log(Dave.getAge());
-//console.log(Dave.age); 
-
-
-class webDev extends coder{
-    constructor(
-        public computer: string,
-        name: string ,
-        music: string , 
-        age:number,
-
-    ){
-        super(name , music , age)
-        this.computer = computer
-
-    }
-    public getLang() {
-        return `I write ${this.lang}`
-    }
-}
-
-const Sara = new webDev('Mac' , 'Sara' , 'Lofi' , 25)
-console.log(Sara.getLang());
-
-
-/////////////////////////////////////////
-
-interface Musician {
-    name: string ,
-    instrument: string,
-    play(action:string) : String
-}
-
-class Guitarist implements Musician{
-    name: string
-    instrument: string
-
-    constructor(name: string , instrument: string){
-        this.name = name
-        this.instrument = instrument
-    }
-    play(action: string){
-        return `${this.name} ${action} the ${this.instrument}`
-    }
-}
-
-const Page = new Guitarist('Jimmy' , 'guitar')
-console.log(Page.play('strums'));
-
-////////////////////////////////////////
-
-class Peeps{
-    static count: number = 0 
-
-    static getCount(): number{
-        return Peeps.count
-    }
-    public id: number
-
-    constructor(public name: string){
-        this.name = name
-        this.id = ++Peeps.count
-    }
-}
-
-const John = new Peeps('John')
-const Steve = new Peeps('Steve')
-const Amy = new Peeps('Amy')
-
-console.log(Steve.id);
-console.log(Amy.id);
-console.log(John.id);
-console.log(Peeps.count);
-
-////////////////////////////////////////////
-
-//about getters and setters
-
-class Bands{
-    private dataState: string[]
-
-    constructor(){
-        this.dataState = []
-    }
-
-    public get data(): string[] {
-        return this.dataState
-    }
-    public set data(value: string[]){
-        if(Array.isArray(value) && value.every(el => typeof el === 'string' )){
-            this.dataState = value
-            return
-        }else throw new Error('Param is not an array of strings')
-    }
-}
-
-const myBands = new Bands()
-myBands.data = ['Neil Young' , 'Led Zep']
-console.log(myBands.data);
-
-myBands.data = [...myBands.data , 'ZZ Top']
-console.log(myBands.data);
+    return total
+ }
+ console.log(todaysNet(todaysTransactions));
