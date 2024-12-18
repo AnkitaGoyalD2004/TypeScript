@@ -6,15 +6,11 @@ An index signature in TypeScript is like telling TypeScript,
 "This object can have many properties, and I don't know all the property names right now,
  but I know what type they will be and what type their values will have."
  */
-//  interface TransactionsObj {
-//     Pizza : number,
-//     Books: number , 
-//     Job: number
-//  }
 const todaysTransactions = {
     Pizza: -10,
     Books: -5,
-    Job: 50
+    Job: 50,
+    //   Dave: 'hey' -> this will give me an error because we aaign a number
 };
 console.log(todaysTransactions.Pizza);
 console.log(todaysTransactions[`Pizza`]);
@@ -33,3 +29,15 @@ const todaysNet = (transactions) => {
     return total;
 };
 console.log(todaysNet(todaysTransactions));
+const student = {
+    name: "Mukku",
+    GPA: 3.5,
+    classes: [100, 200]
+};
+// console.log(student.test);
+for (const key in student) {
+    console.log(`${key}: ${student[key]}`);
+}
+Object.keys(student).map(key => {
+    console.log(student[key]);
+});
