@@ -18,3 +18,17 @@ const recordAssignment = (assign) => {
 const assignVerified = Object.assign(Object.assign({}, assignGraded), { verified: true });
 // assignVerified.grade = 88 // we cannot assign it because its readonly
 recordAssignment(Object.assign(Object.assign({}, assignGraded), { verified: true }));
+//Record
+const hexColorMap = {
+    red: "FF0000",
+    green: "00FF00",
+    blue: "0000FF",
+};
+const finalGrades = {
+    Sara: "B",
+    Kelly: "U"
+};
+const gradeData = {
+    Sara: { assign1: 85, assign2: 93 },
+    Kelly: { assign1: 76, assign2: 15 }
+};
