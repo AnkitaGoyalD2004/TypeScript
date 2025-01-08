@@ -27,7 +27,11 @@ static instance : FullList = new FullList()
 
         const parsedList : {_id : string , _item : string , _checked : boolean}[] = JSON.parse(storedList)
 
-        
+        parsedList.forEach(itemObj => {
+            const newListItem = new ListItem(itemObj._id , itemObj._item , itemObj._checked)
+
+            FullList.instance.addItem(newListItem)
+        })
     }
 
     save(): void{
